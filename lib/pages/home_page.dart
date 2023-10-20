@@ -30,15 +30,9 @@ class HomePage extends StatelessWidget {
                 backgroundColor: Colors.blue)
           ],
           onTap: (int index) {
-            context.read<IndexProvider>().indexChanger(newIndex: index);
-
-            if (context.watch<IndexProvider>().currentIndex == 1) {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/home', (route) => false);
-            } else if (context.watch<IndexProvider>().currentIndex == 0) {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/settings', (route) => false);
-            }
+            context
+                .read<IndexProvider>()
+                .indexChanger(context: context, newIndex: index);
           }),
     );
   }
